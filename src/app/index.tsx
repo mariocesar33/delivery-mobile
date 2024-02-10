@@ -2,7 +2,7 @@ import { useState, useRef } from 'react'
 import { FlatList, View, SectionList, Text } from 'react-native'
 import { Link } from 'expo-router'
 
-import { CATEGORIES, MENU } from '@/utils/data/products'
+import { CATEGORIES, MENU, ProductProps } from '@/utils/data/products'
 
 import { Header } from '@/components/hearder'
 import { CategoryButton } from '@/components/category-button'
@@ -14,7 +14,7 @@ export default function Home(){
   const cartStore = useCartStore()
   const [category, setcategory] = useState("Promoções")
 
-  const sectionListRef = useRef<SectionList>(null)
+  const sectionListRef = useRef<SectionList<ProductProps>>(null)
 
   const cartQuantityItems = cartStore.products.reduce(
     (total, product) => total + product.quantity, 0

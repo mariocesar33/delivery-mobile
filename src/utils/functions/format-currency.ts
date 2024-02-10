@@ -1,6 +1,8 @@
 export function formatCurrency(value: number) {
   return value.toLocaleString('cv', {
     style: 'currency',
-    currency: 'ECV'
+    currency: 'ECV',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
   })
 }
